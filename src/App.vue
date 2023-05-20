@@ -1,9 +1,10 @@
 <template>
-  <h1 class="text-info">index</h1>
+  <Header />
   <router-view></router-view>
 </template>
 
 <script setup>
+import Header from "./components/layout/Header.vue"
 
 </script>
 
