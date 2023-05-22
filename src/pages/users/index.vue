@@ -1,14 +1,31 @@
 <template>
-  <h1>users</h1>
+  <div class="container">
+    <div class="row mt-5 g-3">
+      <div v-if="loading" class="d-flex justify-content-center">
+        <div class="spinner spinner-border spinner-sm"></div>
+      </div>
+      <div class="col-md-3" v-for="user in users" :key="user.id">
+        <CardView :user="user"/>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
 import axios from "axios";
+import { ref } from "vue";
+import CardView from "../../components/users/CardView.vue";
+// نکته : در vue cli عبارت @ به پوشه src اشاره میکند
+
+const users = ref([]);
+const loading = ref(true)
 function getUsers() {
-  axios.get("https://jsonplaceholder.typicode.com/users")
+  axios
+    .get("https://jsonplaceholder.typicode.com/users")
     .then(function (response) {
       // handle success
-      console.log(response);
+      users.value = response.data;
+      loading.value = false
     })
     .catch(function (error) {
       // handle error
@@ -19,5 +36,5 @@ function getUsers() {
     });
 }
 
-getUsers()
+getUsers();
 </script>
