@@ -1,4 +1,9 @@
 <template>
+  <div>
+    <router-link class="btn btn-success" :to="{ name: 'createPost' }">
+      Create New Post
+    </router-link>
+  </div>
   <div v-if="loading" class="d-flex justify-content-center">
     <div class="spinner spinner-border spinner-sm"></div>
   </div>
