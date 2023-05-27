@@ -11,7 +11,7 @@
     </ul>
     <div v-if="route.path !== '/posts'" class="card-header">
       <button class="btn btn-sm btn-danger">Delete</button>
-      <button class="btn btn-sm btn-dark ms-2">Edit</button>
+      <router-link :to="{name: 'editPost', params: {id: post.id}}" class="btn btn-sm btn-dark ms-2 text-light">Edit</router-link>
     </div>
   </div>
 </template>

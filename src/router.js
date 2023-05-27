@@ -7,6 +7,7 @@ import IndexPosts from "./pages/posts/index.vue"
 import ListPosts from "./pages/posts/template.vue"
 import ShowPost from "./pages/posts/show.vue"
 import CreatePost from "./pages/posts/create.vue"
+import EditPost from "./pages/posts/edit.vue"
 
 const routes = [
   {path: "/", name:"home", component: Home},
@@ -18,6 +19,7 @@ const routes = [
     {path: "", name: "postList", component: ListPosts},
     {path: ":id", name: "postID", component: ShowPost},
     {path: "create", name: "createPost", component: CreatePost},
+    {path: "edit/:id", name: "editPost", component: EditPost},
   ]},
 ];
 
